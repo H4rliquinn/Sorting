@@ -1,4 +1,5 @@
 items = [3, 4, 1, 2, 6, 5]
+print(items)
 
 for i in range(1, len(items)):
     curr_val = items[i]
@@ -17,3 +18,5 @@ for i in range(1, len(items)):
         if changed:
             del items[i]
             items.insert(0, curr_val)
+
+print(items)

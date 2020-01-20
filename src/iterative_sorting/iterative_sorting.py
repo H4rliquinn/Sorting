@@ -18,13 +18,22 @@ def selection_sort(arr):
 
 
 def bubble_sort(arr):
-    curr_index = 0
-    for x in range(arr-1):
-
+    while True:
+        switched = False
+        for x in range(len(arr)-1):
+            if arr[x] > arr[x+1]:
+                switched = True
+                temp = arr[x+1]
+                arr[x+1] = arr[x]
+                arr[x] = temp
+                # print(arr1)
+        if switched is False:
+            break
     return arr
 
-
 # STRETCH: implement the Count Sort function below
+
+
 def count_sort(arr, maximum=-1):
 
     return arr
