@@ -1,6 +1,7 @@
 items = [3, 4, 1, 2, 6, 5]
 print(items)
 
+# Insersion Sort
 for i in range(1, len(items)):
     curr_val = items[i]
     if curr_val > items[i-1]:
