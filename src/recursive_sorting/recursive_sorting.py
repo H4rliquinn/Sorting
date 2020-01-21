@@ -17,8 +17,7 @@ def merge_sort(arr):
         return arr
     else:
         arrA = merge_sort(arr[0:len(arr)//2])
-        top = (len(arr)//2)
-        arrB = merge_sort(arr[top:])
+        arrB = merge_sort(arr[(len(arr)//2):])
         arr = merge(arrA, arrB)
     return arr
 
@@ -29,7 +28,6 @@ def merge_sort(arr):
 
 
 def merge_in_place(arr, start, mid, end):
-    # TO-DO
     while start <= mid and mid <= end:
         if arr[start] < arr[mid]:
             start += 1
@@ -40,17 +38,28 @@ def merge_in_place(arr, start, mid, end):
     return arr
 
 
-print(merge_in_place([1, 4, 6, 2, 3, 5], 0, 3, 5))
+# print(merge_in_place([1, 4, 6, 2, 3, 5], 0, 3, 5))
 
 
 def merge_sort_in_place(arr, l, r):
-    # TO-DO
-
-    return arr
-
+    if len(arr) < 2:
+        return arr
+    if r-l < 1:
+        return l, r
+    else:
+        mid = (r-l)//2
+        posA = merge_sort_in_place(arr, l, l+mid)
+        posB = merge_sort_in_place(arr, l+mid+1, r)
+        merge_in_place(arr, posA[0], posB[0], posB[1])
+    if posA[0] == 0 and posB[1] == len(arr)-1:
+        return arr
+    else:
+        return posA[0], posB[1]
 
 # STRETCH: implement the Timsort function below
 # hint: check out https://github.com/python/cpython/blob/master/Objects/listsort.txt
+
+
 def timsort(arr):
 
     return arr
